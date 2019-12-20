@@ -1,30 +1,20 @@
 <template>
   <div id="app">
     <vue-data-viewer :w="300" :h="300" :t="0" />
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
-    <h1>Hello</h1>
+    <Home />
+    <Home />
   </div>
 </template>
 <script>
 import VueDataViewer from '../vue-data-viewer/dv'
+import Home from '@/views/Home'
+import About from '@/views/About'
 export default {
   name: 'App',
   components: {
+    Home,
+    About,
+    // eslint-disable-next-line vue/no-unused-components
     VueDataViewer
   }
 }

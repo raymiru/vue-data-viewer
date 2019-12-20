@@ -1,6 +1,5 @@
 <template>
   <div
-    v-show="show"
     id="vue-data-viewer"
     ref="rdiv"
     :style="{

@@ -8,10 +8,5 @@ Vue.config.productionTip = false
 const vue = new Vue({
   router,
   store,
-  mounted() {
-    this.$children.forEach(child => {
-      console.log(child.$options.__proto__)
-    })
-  },
   render: h => h(App)
 }).$mount('#app')

@@ -1,12 +1,15 @@
 <template>
   <div class="home">
-    sds
+    <Hero />
+    <Hero />
   </div>
 </template>
 
 <script>
+import HelloWorld from '@/components/HelloWorld'
+import Hero from '@/components/Hero'
 export default {
   name: 'home',
-  components: {}
+  components: { Hero, HelloWorld }
 }
 </script>
