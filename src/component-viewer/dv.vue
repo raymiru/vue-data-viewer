@@ -20,7 +20,7 @@
       <div ref="rl" class="resizer-left"></div>
     </div>
     <div :style="{ height: `${dragerH}px` }" ref="drager" class="drager">
-      VCV
+      Vue Component Viewer
     </div>
     <MainView :width="width" :height="height - dragerH" />
   </div>
@@ -216,17 +216,25 @@ export default {
   display: none;
 }
 #vue-data-viewer {
+  border-radius: 5px;
   position: fixed;
   display: flex;
   flex-direction: column;
-  background-color: rgba(1, 32, 37, 0.3);
+  background-color: rgba(104, 130, 241, 0.2);
 }
 
 .drager {
-  background-color: rebeccapurple;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  background-color: #9ca0b4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   cursor: move;
-  color: white;
+  color: #4b4182;
+  font-family: Verdana,serif;
+  font-weight: bold;
 }
 
 .resizers {

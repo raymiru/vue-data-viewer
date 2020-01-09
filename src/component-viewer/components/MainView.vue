@@ -6,9 +6,8 @@
 </template>
 
 <script>
-import { Application, Container, Graphics } from 'pixi.js'
+import { Application, Container } from 'pixi.js'
 import { VueComponent } from './Graphics/VueComponent'
-import Line from './Graphics/Line'
 export default {
   name: 'main-view',
   props: {
@@ -77,23 +76,11 @@ export default {
           child => !this.isSource(child.$options.name)
         )
         woSource.forEach(child => {
-          console.log(child.$$options)
           if (child.$children.length) {
             this.setIntend(child)
           }
         })
-        // const woSource = component.$children.filter(
-        //   child => !this.isSource(child.$options.name)
-        // )
-        // woSource.forEach((child, index) => {
-        //   for (let i = 0; i < index; i++) {
-        //     child.$$options.intend += woSource[i].$$options.totalWidth
-        //   }
-        //
-        //   this.setIntend(child)
-        // })
       } else {
-        console.log('ROOT')
         this.setIntend(component.$children[0])
       }
     },
@@ -121,20 +108,11 @@ export default {
 
         if (component.$parent) {
           component.$parent.$children.forEach((child, index, array) => {
-            // console.log(component.$parent.$children[index].$$depth)
             if (array[index - 1]) {
-              // console.log(index)
-              // component.$$options.intend +=
-              //   component.$parent.$children[index - 1].$$options.totalWidth
+              ;(() => {})()
             }
           })
         }
-        // woSource.forEach((child, index) => {
-        //   if (child[index - 1]) {
-        //     child[index].$$options.intend +=
-        //       child[index - 1].$$options.totalWidth
-        //   }
-        // })
       } else {
         component.$$options.totalWidth = this.graphics.defaultWidth
         component.$$options.posX = this.getComponentPosX(
@@ -160,7 +138,6 @@ export default {
         component.$$options.posY = this.getComponentPosY(
           component.$$options.depth
         )
-        // console.log(component.$$options)
         this.renderGraphics(component)
         if (component.$children.length) {
           const woSource = component.$children.filter(
@@ -195,7 +172,6 @@ export default {
       delete component.$$depth
 
       component.$$options.directChildCount = component.$children.length
-      // console.log(component.$$options)
       if (component.$children.length) {
         component.$children.forEach((child, index, array) => {
           child.$$depth = component.$$options.depth + 1
@@ -236,8 +212,6 @@ export default {
             this.previousTotalWidth(array[index - 1]) +
             this.parentIntend(child)
         }
-        // console.log(child.$$options)
-        // console.log(component.$$options)
         this.createIntend(child)
       })
     },
@@ -292,8 +266,6 @@ export default {
           this.app.renderer.plugins.interaction
         )
       )
-
-      // console.log(this.graphics.components[this.renderIndex])
     },
     renderStage(component) {
       this.renderGraphics(component)
@@ -314,28 +286,6 @@ export default {
     this.renderStage(this.$root)
     this.app.stage.addChild(this.graphics.lineContainer)
     this.app.stage.addChild(this.graphics.componentContainer)
-    // this.app.stage.scale.set(0.4, 0.4)
-
-    // this.magic(this.$root)
-    // this.setIntend(this.$root)
-    // this.showChildren(this.$root)
-    // this.showChildren(this.$root)
-
-    // this.$root.$children.forEach(child => {
-    //   console.log(child)
-    //   child.$children.forEach(child => {
-    //     console.log(child)
-    //   })
-    // })
-
-    // for (let i = 0; i < 5; i++) {
-    //   this.graphics.components.push(
-    //     new VueComponent(container, 100 * i, 50 * i, 0x233422, this.iManager)
-    //   )
-    // }
-
-    // this.app.stage.scale.set(0.5, 0.5)
-    // this.app.stage.pivot.set(-this.width / 2, -100)
 
     this.app.stage.interactive = true
     this.app.renderer.plugins.interaction.cursorStyles.default = 'grab'
@@ -369,14 +319,11 @@ export default {
       let pivotX = this.app.stage.pivot.x
       let pivotY = this.app.stage.pivot.y
 
-      // this.app.stage.pivot.set( -evt.data.global.y)
       this.app.renderer.plugins.interaction.on('mousemove', evt => {
         this.stage.mousedown.difference.x =
           this.stage.mousedown.x - evt.data.global.x
         this.stage.mousedown.difference.y =
           this.stage.mousedown.y - evt.data.global.y
-        // console.log(this.stage.mousedown.difference.x)
-        // console.log(this.stage.mousedown.difference.y)
 
         this.app.stage.pivot.set(
           pivotX + this.stage.mousedown.difference.x,

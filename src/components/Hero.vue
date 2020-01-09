@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="display: flex; flex-direction: row">
     <HeroName />
     <HeroWeapon />
     <HeroWeapon />
@@ -10,10 +10,10 @@
 
 <script>
 import HeroName from '@/components/HeroName'
-import HeroWeapon from "@/components/HeroWeapon";
+import HeroWeapon from '@/components/HeroWeapon'
 export default {
   name: 'Hero',
-  components: {HeroWeapon, HeroName }
+  components: { HeroWeapon, HeroName }
 }
 </script>
 

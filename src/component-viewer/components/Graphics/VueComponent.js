@@ -25,8 +25,8 @@ export class VueComponent extends PIXI.Graphics {
     this.iManager = iManager
 
     this.textstyle = new PIXI.TextStyle({
-      fontFamily: 'Century Gothic',
-      fontSize: 15,
+      fontFamily: 'Verdana',
+      fontSize: 17,
       fill: 'white',
       align: 'center'
     })
@@ -37,7 +37,7 @@ export class VueComponent extends PIXI.Graphics {
       this.addChild(this.title)
       cnt.addChild(this)
       if (parent.posX) {
-        const line = new Line([parent.posX, parent.posY, posX, posY], 3)
+        const line = new Line([parent.posX, parent.posY, posX, posY], 5)
         lineCnt.addChild(line)
       }
     }

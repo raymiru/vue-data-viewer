@@ -5,7 +5,7 @@ export default class Line extends PIXI.Graphics {
     super()
 
     let s = (this.lineWidth = lineSize || 5)
-    let c = (this.lineColor = lineColor || '0xffffff')
+    let c = (this.lineColor = lineColor || '0x454482')
 
     this.points = points
 
@@ -24,7 +24,7 @@ export default class Line extends PIXI.Graphics {
       c = this.lineColor
 
     this.clear()
-    this.lineStyle(s, c, 0.1)
+    this.lineStyle(s, c)
     this.moveTo(points[0], points[1])
     this.lineTo(points[2], points[3])
   }

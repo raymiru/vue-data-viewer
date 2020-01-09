@@ -6,7 +6,7 @@
   </div>
 </template>
 <script>
-import VueDataViewer from '../vue-data-viewer/dv'
+import VueDataViewer from './component-viewer/dv'
 import Home from '@/views/Home'
 import About from '@/views/About'
 export default {
